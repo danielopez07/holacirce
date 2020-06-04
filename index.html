@@ -2,7 +2,11 @@
 <html>
   <head>
     <title>Socket.IO chat</title>
-		<link rel="stylesheet" href="style.css">
+    <!-- 
+	https://stackoverflow.com/questions/44657829/css-file-blocked-mime-type-mismatch-x-content-type-options-nosniff
+	https://stackoverflow.com/questions/24582338/how-can-i-include-css-files-using-node-express-and-ejs#24582622
+    -->
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
   </head>
   <body>
     <ul id="messages"></ul>
@@ -10,11 +14,11 @@
       <input id="m" autocomplete="off" /><button>Send</button>
     </form>
     
-		<script src="/socket.io/socket.io.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     
-		<script>
-    $(function() {
+    <script>
+        $(function() {
 			var socket = io();
 			$('form').submit(function(e) {
 				e.preventDefault(); // prevents page from reloading
