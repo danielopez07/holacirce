@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Socket.IO chat</title>
+    <title>Hola Circe!</title>
     <!-- 
 	https://stackoverflow.com/questions/44657829/css-file-blocked-mime-type-mismatch-x-content-type-options-nosniff
 	https://stackoverflow.com/questions/24582338/how-can-i-include-css-files-using-node-express-and-ejs#24582622
@@ -9,10 +9,21 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css">
   </head>
   <body>
-    <ul id="messages"></ul>
-    <form action="">
-      <input id="m" autocomplete="off" /><button>Send</button>
-    </form>
+	<section class="welcome" id="welcome">
+		<h1>Hola Circe</h1>
+		<form action="#">
+			<label for="name">Choose an username:</label>
+			<input type="text" name="name" id="name">
+
+			<button>Chat!</button>
+		</form>
+	</section>
+	<section class="chat-page" id="chat-page">
+		<ul id="messages"></ul>
+		<form id="chat-msg" action="">
+		<input id="m" autocomplete="off" /><button>Send</button>
+		</form>
+	</section>
     
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
