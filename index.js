@@ -10,15 +10,16 @@ app.use(express.static(__dirname + '/public'));
 
 io.on('connection', function(socket) {
   // console.log('an user connected');
+
   // send message to other connected users
   socket.broadcast.emit('chat message', 'New user connected');
+
   // send message to user that conected
   setTimeout(function() {
     socket.send('Welcome new user');
   }, 500);
   
   socket.on('chat message', function(msg) {
-    // console.log('message: ' + msg);
     io.emit('chat message', msg);
   });
 
