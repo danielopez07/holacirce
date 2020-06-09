@@ -1,21 +1,27 @@
 
 window.onload = function () {
-    var chat_page = document.getElementById('chat-page');
-    chat_page.classList.add('hidden');
-
+    var welcomePage = document.getElementById('welcome');
+    var chatPage = document.getElementById('chat-page');
+    var messages = document.getElementById('messages');
+    var chatForm = document.getElementById('chat-msg');
+    var msg = document.getElementById('m');
     var socket = io();
-    $('form #chat-msg').submit(function (e) {
+    
+    // welcomePage.classList.add('hidden');
+    // chatPage.classList.add('hidden');
+
+    chatForm.onsubmit = function (e) {
         e.preventDefault();
-        socket.emit('chat message', $('#m').val());
-        $('#m').val('');
+        socket.emit('chat message', msg.value);
+        msg.value = '';
         return false;
-    });
+    };
 
     socket.on('chat message', function (msg) {
-        $('#messages').append($('<li>').text(msg));
+        messages.innerHTML += '<li>' + msg + '</li>';
     });
 
     socket.on('message', function (msg) {
-        $('#messages').append($('<li>').text(msg));
+        messages.innerHTML += '<li>' + msg + '</li>';
     });
 };
