@@ -1,6 +1,7 @@
 
 window.onload = function () {
     var welcomePage = document.getElementById('welcome');
+    var usernameForm = document.getElementById('username-form')
     var chatPage = document.getElementById('chat-page');
     var messages = document.getElementById('messages');
     var chatForm = document.getElementById('chat-msg');
@@ -9,6 +10,11 @@ window.onload = function () {
     
     // welcomePage.classList.add('hidden');
     // chatPage.classList.add('hidden');
+
+    usernameForm.onsubmit = function (e) {
+        e.preventDefault();
+        console.log(e);
+    }
 
     chatForm.onsubmit = function (e) {
         e.preventDefault();

@@ -9,9 +9,9 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css">
   </head>
   <body>
-	<section class="welcome hidden" id="welcome">
+	<section class="welcome" id="welcome">
 		<h1>Hola Circe</h1>
-		<form action="#">
+		<form id="username-form" action="#">
 			<label for="name">Choose an username:</label>
 			<input type="text" name="name" id="name">
 
@@ -19,7 +19,7 @@
 		</form>
 	</section>
 
-	<section class="chat-page" id="chat-page">
+	<section class="chat-page hidden" id="chat-page">
 		<ul id="messages"></ul>
 		<form id="chat-msg" action="">
 		<input id="m" autocomplete="off" /><button>Send</button>
