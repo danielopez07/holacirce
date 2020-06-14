@@ -6,6 +6,11 @@ var io = require('socket.io')(http);
 app.get('/', function(req, res) {
   res.sendFile(__dirname + '/index.html');
 });
+
+app.get('/chat', function(req, res) {
+  res.sendFile(__dirname + '/chat.html');
+});
+
 app.use(express.static(__dirname + '/public'));
 
 io.on('connection', function(socket) {
