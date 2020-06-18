@@ -8,6 +8,15 @@ body {
 	font: 13px Helvetica, Arial; 
 }
 
+body.welcome {
+	background-color: #b4408f;
+	color: #fff;
+	padding: 5em;
+}
+.welcome input {
+	display: block;
+}
+
 .chat-page form { 
 	background: #000;
 	padding: 3px;
