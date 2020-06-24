@@ -13,8 +13,24 @@ body.welcome {
 	color: #fff;
 	padding: 5em;
 }
-.welcome input {
+.welcome .header {
+	text-align: center;
+	margin: 1.5em;
+}
+.welcome .username-form {
+	text-align: center;
+	margin: 1.5em;
+}
+.welcome .username-input {
 	display: block;
+	margin: 1.5em auto;
+	background-color: #b4408f;
+	color: #fff;
+	border-color: #cfdf00;
+	text-align: center;
+}
+.welcome .button {
+	background-color: #cfdf00;
 }
 
 .chat-page form { 
