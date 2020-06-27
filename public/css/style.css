@@ -26,6 +26,9 @@ body.welcome {
 	margin: 1.5em;
 	color: var(--circe-yellow);
 }
+.welcome .logo {
+	max-width: 5em;
+}
 .welcome .username-form {
 	text-align: center;
 	margin: 1.5em;
