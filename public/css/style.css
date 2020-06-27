@@ -1,3 +1,8 @@
+:root {
+	--circe-yellow: #cfdf00;
+	--circe-purple: #b4408f;
+}
+
 * {
 	margin: 0; 
 	padding: 0;
@@ -5,17 +10,21 @@
 }
 
 body {
-	font: 13px Helvetica, Arial; 
+	font: 1em Helvetica, Arial; 
 }
 
+/* WELCOME PAGE */
+
 body.welcome {
-	background-color: #b4408f;
+	background-color: var(--circe-purple);
 	color: #fff;
-	padding: 5em;
+	padding: 1em;
+	margin: auto;
 }
 .welcome .header {
 	text-align: center;
 	margin: 1.5em;
+	color: var(--circe-yellow);
 }
 .welcome .username-form {
 	text-align: center;
@@ -24,14 +33,20 @@ body.welcome {
 .welcome .username-input {
 	display: block;
 	margin: 1.5em auto;
-	background-color: #b4408f;
+	background-color: var(--circe-purple);
 	color: #fff;
-	border-color: #cfdf00;
+	border-style: solid;
+	border-color: var(--circe-yellow);
 	text-align: center;
 }
 .welcome .button {
-	background-color: #cfdf00;
+	padding: .2em 1em;
+	background-color: var(--circe-yellow);
+	border-style: solid;
+	border-color: var(--circe-yellow);
 }
+
+/* CHAT PAGE */
 
 .chat-page form { 
 	background: #000;
@@ -55,12 +70,6 @@ body.welcome {
 	padding: 10px; 
 }
 
-.hidden .chat-page form,
-.hidden .chat-page form input,
-.hidden .chat-page form button {
-	display: none;
-}
-
 #messages {
 	list-style-type: none;
 	margin: 0;
@@ -73,8 +82,4 @@ body.welcome {
 
 #messages li:nth-child(odd) {
 	background: #eee;
-}
-
-.hidden {
-	display: none;
 }

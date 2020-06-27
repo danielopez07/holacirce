@@ -1,21 +1,24 @@
 <!doctype html>
-<html>
-    <head>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Hola Circe!</title>
         <link rel="stylesheet" type="text/css" href="/css/style.css">
-    </head>
+</head>
 
-    <body>
-        <section class="chat-page" id="chat-page">
-            <button id="back-btn">Back</button>
+<body>
+    <section class="chat-page" id="chat-page">
+        <button id="back-btn">Back</button>
+
+        <ul id="messages"></ul>
+        <form id="chat-msg" action="">
+        <input id="m" autocomplete="off" /><button>Send</button>
+        </form>
+    </section>
     
-            <ul id="messages"></ul>
-            <form id="chat-msg" action="">
-            <input id="m" autocomplete="off" /><button>Send</button>
-            </form>
-        </section>
-        
-        <script src="/socket.io/socket.io.js"></script>
-        <script src="/js/chat.js"></script>
-    </body>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/chat.js"></script>
+</body>
 </html>
