@@ -1,0 +1,23 @@
+:root {
+	--circe-yellow: #cfdf00;
+	--circe-purple: #b4408f;
+}
+
+* {
+	margin: 0; 
+	padding: 0;
+	box-sizing: border-box; 
+}
+
+body {
+	font: 1em Helvetica, Arial; 
+}
+
+.button {
+    padding: .2em 1em;
+    font: 1em Helvetica, Arial; 
+    border-radius: 5px;
+	background-color: var(--circe-yellow);
+	border-style: solid;
+	border-color: var(--circe-yellow);
+}

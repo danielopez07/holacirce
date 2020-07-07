@@ -1,36 +1,30 @@
 <!doctype html>
-<html>
-  <head>
-    <title>Socket.IO chat</title>
-		<link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <ul id="messages"></ul>
-    <form action="">
-      <input id="m" autocomplete="off" /><button>Send</button>
-    </form>
-    
-		<script src="/socket.io/socket.io.js"></script>
-    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-    
-		<script>
-    $(function() {
-			var socket = io();
-			$('form').submit(function(e) {
-				e.preventDefault(); // prevents page from reloading
-				socket.emit('chat message', $('#m').val());
-				$('#m').val('');
-				return false;
-			});
+<html lang="en">
 
-			socket.on('chat message', function(msg) {
-				$('#messages').append($('<li>').text(msg));
-			});
-			
-			socket.on('message', function(msg) {
-				$('#messages').append($('<li>').text(msg));
-			});
-		});
-	</script>
-  </body>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Hola Circe!</title>
+	<!-- 
+	https://stackoverflow.com/questions/44657829/css-file-blocked-mime-type-mismatch-x-content-type-options-nosniff
+	https://stackoverflow.com/questions/24582338/how-can-i-include-css-files-using-node-express-and-ejs#24582622
+	-->
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/css/home.css">
+</head>
+
+<body class="welcome" id="welcome">
+	<section class="header">
+		<img src="/imgs/logo_holacirce_blanco.png" alt="hola circe logo" class="logo">
+		<h1>Hola Circe</h1>
+	</section>
+	<form id="username-form" class="username-form" action="#">
+		<label for="name">Choose an username:</label>
+		<input type="text" name="name" id="name" class="username-input" autofocus>
+
+		<button class="button">Chat!</button>
+	</form>
+	<script src="/js/home.js"></script>
+</body>
+
 </html>
