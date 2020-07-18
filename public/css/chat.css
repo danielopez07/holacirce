@@ -3,16 +3,25 @@
 /* Header */
 
 .chat-page header {
+	position: fixed;
+	top: 0;
+	width: 100%;
 	padding: .5em;
 	background-color: var(--circe-purple);
+	height: 3em;
 }
 
 /* Body, chat messages */
 
 .messages {
+	position: fixed;
+	bottom: 3em;
+	width: 100%;
+	max-height: calc(100vh - 6em);
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
+	overflow-y: scroll;
 }
 
 .messages li {
@@ -31,6 +40,7 @@
 	position: fixed;
 	bottom: 0;
 	width: 100%;
+	height: 3em;
 }
 
 .chat-page .chat-msg input {
