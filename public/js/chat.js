@@ -20,9 +20,15 @@ window.onload = function () {
 
     socket.on('chat message', function (msg) {
         messages.innerHTML += '<li>' + msg + '</li>';
+        updateScroll();
     });
 
     socket.on('message', function (msg) {
         messages.innerHTML += '<li>' + msg + '</li>';
+        updateScroll();
     });
+
+    function updateScroll(){
+        messages.scrollTop = messages.scrollHeight;
+    }
 };
