@@ -29,6 +29,10 @@ window.onload = function () {
     });
 
     function updateScroll(){
-        messages.scrollTop = messages.scrollHeight;
+        let messageLines = document.querySelectorAll('li'),
+            lastMessageHeight = messageLines ? messageLines[messageLines.length - 1].clientHeight : 0;
+
+        if (messages.scrollTop >= messages.scrollHeight - messages.clientHeight - lastMessageHeight)
+            messages.scrollTop = messages.scrollHeight - messages.clientHeight;
     }
 };
