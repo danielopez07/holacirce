@@ -46,4 +46,8 @@ window.onload = function () {
         else
             scrollDownBtn.classList.remove('visible');
     }
+
+    scrollDownBtn.onclick = function scrollDown() {
+        messages.scrollTop = messages.scrollHeight - messages.clientHeight;
+    }
 };
