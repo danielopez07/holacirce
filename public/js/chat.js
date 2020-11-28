@@ -4,6 +4,7 @@ window.onload = function () {
     var messages = document.getElementById('messages');
     var chatForm = document.getElementById('chat-msg');
     var msg = document.getElementById('m');
+    var scrollDownBtn = document.getElementById('scroll-down');
     var username = localStorage.getItem('username');
     var socket = io();
 
@@ -34,5 +35,15 @@ window.onload = function () {
 
         if (messages.scrollTop >= messages.scrollHeight - messages.clientHeight - lastMessageHeight)
             messages.scrollTop = messages.scrollHeight - messages.clientHeight;
+    }
+
+    messages.onscroll = function showScrollDownBtn() {
+        let messageLines = document.querySelectorAll('li'),
+            lastMessageHeight = messageLines ? messageLines[messageLines.length - 1].clientHeight : 0;
+
+        if (messages.scrollTop < messages.scrollHeight - messages.clientHeight - lastMessageHeight)
+            scrollDownBtn.classList.add('visible');
+        else
+            scrollDownBtn.classList.remove('visible');
     }
 };
