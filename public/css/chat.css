@@ -9,6 +9,7 @@
 	padding: .5em;
 	background-color: var(--circe-purple);
 	height: 3em;
+	z-index: 10;
 }
 
 /* Body, chat messages */
@@ -73,6 +74,7 @@
 	align-items: center;
 	justify-content: center;
 	box-shadow: 1px 2px 6px #888;
+	z-index: 10;
 }
 .scroll-down:hover {
 	box-shadow: 1px 2px 2px #888;
