@@ -10,6 +10,8 @@ window.onload = function () {
 
     chatForm.onsubmit = function (e) {
         e.preventDefault();
+        if (!msg.value) return false;
+        
         socket.emit('chat message', username + ': ' + msg.value);
         msg.value = '';
         return false;
