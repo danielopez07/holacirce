@@ -6,7 +6,7 @@ window.onload = function () {
     var msg = document.getElementById('m');
     var scrollDownBtn = document.getElementById('scroll-down');
     var username = localStorage.getItem('username');
-    var socket = io();
+    var socket = io('/', {query: {username: username}});
 
     chatForm.onsubmit = function (e) {
         e.preventDefault();

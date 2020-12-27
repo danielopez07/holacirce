@@ -17,11 +17,11 @@ io.on('connection', function(socket) {
   // console.log('an user connected');
 
   // send message to other connected users
-  socket.broadcast.emit('chat message', 'New user connected');
+  socket.broadcast.emit('chat message', socket.handshake.query.username + ' connected');
 
   // send message to user that conected
   setTimeout(function() {
-    socket.send('Welcome new user');
+    socket.send('Welcome ' + socket.handshake.query.username);
   }, 500);
   
   socket.on('chat message', function(msg) {
@@ -31,7 +31,7 @@ io.on('connection', function(socket) {
   socket.on('disconnect', function() {
   //   console.log('user disconnected');
   // send message to other connected users
-  socket.broadcast.emit('chat message', 'User left');
+  socket.broadcast.emit('chat message', socket.handshake.query.username + ' left');
   });
 });
 
