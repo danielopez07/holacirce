@@ -14,10 +14,12 @@ body {
 }
 
 .button {
-    padding: .2em 1em;
+    padding: .2em 1em 0;
+	color: var(--circe-purple);
     font: 1em Helvetica, Arial; 
     border-radius: 5px;
 	background-color: var(--circe-yellow);
 	border-style: solid;
 	border-color: var(--circe-yellow);
+	cursor: pointer;
 }

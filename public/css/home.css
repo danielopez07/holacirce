@@ -36,4 +36,6 @@ body.welcome {
 
 .welcome button {
 	margin: auto;
+	line-height: 1;
+	font-weight: bold;
 }
