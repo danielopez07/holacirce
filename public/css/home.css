@@ -21,7 +21,7 @@ body.welcome {
 	flex-direction: column;
 }
 .welcome .username-input {
-	margin: 1.5em auto;
+	margin: .5em auto 1.5em;
 	background-color: var(--circe-purple);
 	color: #fff;
 	border-style: solid;
@@ -30,7 +30,7 @@ body.welcome {
 }
 
 .welcome select {
-	margin: 1.5em auto;
+	margin: .5em auto 1.5em;
 	text-align: center;
 }
 
