@@ -17,13 +17,23 @@ body.welcome {
 .welcome .username-form {
 	text-align: center;
 	margin: 1.5em;
+	display: flex;
+	flex-direction: column;
 }
 .welcome .username-input {
-	display: block;
 	margin: 1.5em auto;
 	background-color: var(--circe-purple);
 	color: #fff;
 	border-style: solid;
 	border-color: var(--circe-yellow);
 	text-align: center;
+}
+
+.welcome select {
+	margin: 1.5em auto;
+	text-align: center;
+}
+
+.welcome button {
+	margin: auto;
 }
