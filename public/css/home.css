@@ -39,3 +39,8 @@ body.welcome {
 	line-height: 1;
 	font-weight: bold;
 }
+
+.welcome p.userFeedback {
+	margin: auto;
+	text-align: center;
+}

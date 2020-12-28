@@ -34,6 +34,7 @@ window.onload = function () {
 
     socket.on('message', (message) => {
         if (message === 'username taken') {
+            localStorage.setItem('usernameTaken', true);
             backBtn.click();
             return;
         }
