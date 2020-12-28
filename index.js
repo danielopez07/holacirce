@@ -16,7 +16,20 @@ app.use(express.static(__dirname + '/public'));
 io.on('connection', function(socket) {
   // console.log('an user connected');
   const username = socket.handshake.query.username,
+    id = socket.id,
     room = socket.handshake.query.room ? socket.handshake.query.room : 'holaCirce';
+  let usernameTaken = false;
+  
+  // verify that username is not taken
+  io.sockets.sockets.forEach(socketItem => {
+    const socketItemUsername = socketItem.handshake.query.username,
+      socketItemId = socketItem.id;
+    if (username == socketItemUsername && id !== socketItemId) {
+      socket.send('username taken');
+      usernameTaken = true;
+    }
+  });
+  if (usernameTaken) { return; }
 
   socket.join(room);
 

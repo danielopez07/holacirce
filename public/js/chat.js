@@ -32,7 +32,13 @@ window.onload = function () {
 
     socket.on('chat message', addNewLine);
 
-    socket.on('message', addNewLine);
+    socket.on('message', (message) => {
+        if (message === 'username taken') {
+            backBtn.click();
+            return;
+        }
+        addNewLine(message);
+    });
 
     function updateScroll(){
         let messageLines = document.querySelectorAll('li'),
