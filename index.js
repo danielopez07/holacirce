@@ -15,23 +15,27 @@ app.use(express.static(__dirname + '/public'));
 
 io.on('connection', function(socket) {
   // console.log('an user connected');
+  const username = socket.handshake.query.username,
+    room = socket.handshake.query.room ? socket.handshake.query.room : 'holaCirce';
+
+  socket.join(room);
 
   // send message to other connected users
-  socket.broadcast.emit('chat message', socket.handshake.query.username + ' connected');
+  socket.to(room).emit('chat message', username + ' connected');
 
   // send message to user that conected
   setTimeout(function() {
-    socket.send('Welcome ' + socket.handshake.query.username);
+    socket.send('Welcome ' + username);
   }, 500);
   
   socket.on('chat message', function(msg) {
-    io.emit('chat message', msg);
+    socket.to(room).emit('chat message', msg);
   });
 
   socket.on('disconnect', function() {
   //   console.log('user disconnected');
   // send message to other connected users
-  socket.broadcast.emit('chat message', socket.handshake.query.username + ' left');
+  socket.to(room).emit('chat message', username + ' left');
   });
 });
 

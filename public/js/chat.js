@@ -6,12 +6,21 @@ window.onload = function () {
     var msg = document.getElementById('m');
     var scrollDownBtn = document.getElementById('scroll-down');
     var username = localStorage.getItem('username');
-    var socket = io('/', {query: {username: username}});
+    var room = localStorage.getItem('room');
+    var socket = io('/', {query: {username: username, room: room}});
+
+    function addNewLine(message) {
+        if (!message) return;
+    
+        messages.innerHTML += '<li>' + message + '</li>';
+        updateScroll();
+    }
 
     chatForm.onsubmit = function (e) {
         e.preventDefault();
         if (!msg.value) return false;
         
+        addNewLine(username + ': ' + msg.value);
         socket.emit('chat message', username + ': ' + msg.value);
         msg.value = '';
         return false;
@@ -21,15 +30,9 @@ window.onload = function () {
         window.location.pathname = '/'
     }
 
-    socket.on('chat message', function (msg) {
-        messages.innerHTML += '<li>' + msg + '</li>';
-        updateScroll();
-    });
+    socket.on('chat message', addNewLine);
 
-    socket.on('message', function (msg) {
-        messages.innerHTML += '<li>' + msg + '</li>';
-        updateScroll();
-    });
+    socket.on('message', addNewLine);
 
     function updateScroll(){
         let messageLines = document.querySelectorAll('li'),
