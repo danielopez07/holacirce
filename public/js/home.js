@@ -13,10 +13,11 @@ window.onload = function () {
         localStorage.setItem('room', room.value);
         localStorage.setItem('usernameTaken', false);
         userFeedback.style.display = 'none';
+        localStorage.setItem('usernameTaken', false);
         window.location.pathname = '/chat';
     }
 
-    if (isUsernameTaken) {
+    if (isUsernameTaken && isUsernameTaken === 'true') {
         userFeedback.innerHTML = 'Please choose another username, <em>' + usernameTaken + '</em> is already taken.';
         userFeedback.style.display = 'block';
     } else {
